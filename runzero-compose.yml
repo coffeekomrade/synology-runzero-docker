@@ -1,0 +1,12 @@
+services:
+  runzero-explorer:
+    image: ubuntu:latest
+    working_dir: /opt/rumble
+    environment:
+      - AGENT_URL=https://console.runzero.com/download/explorer/DT[uniqueToken]/[versionID]/runzero-explorer-linux-amd64.bin
+      - RUMBLE_AGENT_HOST_ID=<ID HERE>
+      - RUMBLE_AGENT_LOG_DEBUG=false
+    user: root
+    entrypoint: ["/opt/rumble/runzero-explorer.bin", "manual"]
+    volumes:
+      - ./runzero-explorer.bin:/opt/rumble/runzero-explorer.bin
